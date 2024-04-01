@@ -53,7 +53,7 @@ void vPortStartFirstTask( void )
     __asm volatile(
     "   .syntax unified           \n"
     "                             \n"
-#if defined(__SES_ARM)
+#if defined(__SES_ARM) 
     " ldr r0, =_vectors \n"     /* Locate the stack using _vectors table. */
 #else
     " ldr r0, =__isr_vector \n" /* Locate the stack using __isr_vector table. */

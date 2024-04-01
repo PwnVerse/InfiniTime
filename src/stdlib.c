@@ -6,22 +6,22 @@
 // calloc and realloc.
 // See https://www.gnu.org/software/libc/manual/html_node/Replacing-malloc.html
 
-void* malloc(size_t size) {
-  return pvPortMalloc(size);
-}
+// void* malloc(size_t size) {
+//   return pvPortMalloc(size);
+// }
 
-void free(void* ptr) {
-  vPortFree(ptr);
-}
+// void free(void* ptr) {
+//   vPortFree(ptr);
+// }
 
-void* calloc(size_t num, size_t size) {
-  (void)(num);
-  (void)(size);
-  // Not supported
-  return NULL;
-}
+// void* calloc(size_t num, size_t size) {
+//   (void)(num);
+//   (void)(size);
+//   // Not supported
+//   return NULL;
+// }
 
-void *pvPortRealloc(void *ptr, size_t xWantedSize);
-void* realloc( void *ptr, size_t newSize) {
-  return pvPortRealloc(ptr, newSize);
-}
+// void *pvPortRealloc(void *ptr, size_t xWantedSize);
+// void* realloc( void *ptr, size_t newSize) {
+//   return pvPortRealloc(ptr, newSize);
+// }

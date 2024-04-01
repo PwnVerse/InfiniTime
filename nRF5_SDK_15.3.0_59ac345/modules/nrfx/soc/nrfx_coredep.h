@@ -162,19 +162,19 @@ __STATIC_INLINE void nrfx_coredep_delay_us(uint32_t time_us)
     #endif // NRFX_COREDEP_DELAY_US_LOOP_CYCLES
     // Align the machine code, so that it can be cached properly and no extra
     // wait states appear.
-    __ALIGN(16)
-    static const uint16_t delay_machine_code[] = {
-        0x3800 + NRFX_COREDEP_DELAY_US_LOOP_CYCLES, // SUBS r0, #loop_cycles
-        0xd8fd, // BHI .-2
-        0x4770  // BX LR
-    };
+    // __ALIGN(16)
+    // static const uint16_t delay_machine_code[] = {
+    //     0x3800 + NRFX_COREDEP_DELAY_US_LOOP_CYCLES, // SUBS r0, #loop_cycles
+    //     0xd8fd, // BHI .-2
+    //     0x4770  // BX LR
+    // };
 
-    typedef void (* delay_func_t)(uint32_t);
-    const delay_func_t delay_cycles =
-        // Set LSB to 1 to execute the code in the Thumb mode.
-        (delay_func_t)((((uint32_t)delay_machine_code) | 1));
-    uint32_t cycles = time_us * NRFX_DELAY_CPU_FREQ_MHZ;
-    delay_cycles(cycles);
+    // typedef void (* delay_func_t)(uint32_t);
+    // const delay_func_t delay_cycles =
+    //     // Set LSB to 1 to execute the code in the Thumb mode.
+    //     (delay_func_t)((((uint32_t)delay_machine_code) | 1));
+    // uint32_t cycles = time_us * NRFX_DELAY_CPU_FREQ_MHZ;
+    // delay_cycles(cycles);
 }
 
 #endif // !NRFX_CHECK(NRFX_DELAY_DWT_BASED_DELAY)
