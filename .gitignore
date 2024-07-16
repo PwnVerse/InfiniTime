@@ -13,7 +13,6 @@ build
 tools
 
 # Resulting binary files
-*.a
 *.s
 *.hex
 *.bin
